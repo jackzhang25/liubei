@@ -1,0 +1,15 @@
+import sys
+def solution(N, A):
+    # write your code in Python 3.6
+    highest_num = sys.maxsize
+    counter_list = []
+    for i in range(N):
+        counter_list.append(0)
+    for num in A:
+        if num == N+1:
+            highest_num = max(counter_list)
+            for i in range(len(counter_list)):
+                counter_list[i] = highest_num
+        else:
+            counter_list[num-1] += 1
+    return counter_list
